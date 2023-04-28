@@ -8,8 +8,9 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
  
 import Rank from './components/Rank/Rank';
-import './App.css';
+// import './App.css';
 import PostJobs from './components/PostJobs';
+import JobListing from './components/JobListing';
 
 const initialState = {
   input: '',
@@ -76,7 +77,8 @@ class App extends Component {
                 entries={this.state.user.entries}
               />
             
-             <PostJobs/>
+             {/* <PostJobs/> */}
+             <JobListing/>
             </div>
           : (
              route === 'signin'
