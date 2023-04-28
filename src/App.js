@@ -9,6 +9,7 @@ import Logo from './components/Logo/Logo';
  
 import Rank from './components/Rank/Rank';
 import './App.css';
+import PostJobs from './components/PostJobs';
 
 const initialState = {
   input: '',
@@ -74,8 +75,8 @@ class App extends Component {
                 name={this.state.user.name}
                 entries={this.state.user.entries}
               />
-              
-             
+            
+             <PostJobs/>
             </div>
           : (
              route === 'signin'
