@@ -1,19 +1,22 @@
+// jobListings.js
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import CardList from './cards/cardlist';
 // import './JobListing.css';
 
-const JobListing = () => {
+const JobListing = ({user}) => {
+  console.log("joblisting",user);
   const [jobListings, setJobListings] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/job_listing')
+    fetch('http://localhost:3001/job_listing?is_active=true')
       .then((res) => res.json())
       .then((data) => {
         setJobListings(data);
       })
       .catch((err) => console.log(err));
   }, []);
+
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
@@ -36,13 +39,17 @@ const JobListing = () => {
     .catch((err) => console.log(err));
   };
 
+  const handleJobListingUpdate = (jobId) => {
+    const updatedJobListings = jobListings.filter((job) => job.id !== jobId);
+    setJobListings(updatedJobListings);
+  };
   return (
     <div className='job-listing'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId='jobListings'>
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              <CardList jobListings={jobListings} />
+              <CardList jobListings={jobListings} onUpdate={handleJobListingUpdate} user={user}/>
               {provided.placeholder}
             </div>
           )}

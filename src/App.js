@@ -21,8 +21,7 @@ const initialState = {
     id: '',
     name: '',
     email: '',
-    entries: 0,
-    joined: ''
+    is_admin:''
   }
 }
 
@@ -37,8 +36,7 @@ class App extends Component {
       id: data.id,
       name: data.name,
       email: data.email,
-      entries: data.entries,
-      joined: data.joined
+      is_admin: data.is_admin
     }})
   }
 
@@ -61,7 +59,7 @@ class App extends Component {
   }
 
   render() {
-    const { isSignedIn, imageUrl, route, box } = this.state;
+    const { isSignedIn,  route } = this.state;
 
 
     return (
@@ -74,11 +72,12 @@ class App extends Component {
               <Logo />
               <Rank
                 name={this.state.user.name}
-                entries={this.state.user.entries}
+                is_admin={this.state.user.is_admin}
               />
             
-             {/* <PostJobs/> */}
-             <JobListing/>
+             {/* <PostJobs ={this.state.user}/> */}
+             <JobListing user={this.state.user}/>
+
             </div>
           : (
              route === 'signin'
