@@ -55,47 +55,57 @@ function PostJobs() {
       deadline.trim() !== ''
     );
   }
-  
+
   return (
-    <div style={{ backdropFilter: "blur(8px)", backgroundColor: "rgba(255, 255, 255, 0.5)", borderRadius: "10px", padding: "20px" }}>
+    
+
+    <div style={{ backdropFilter: "blur(8px)", backgroundColor: "rgba(255, 255, 255, 0.5)", borderRadius: "20px", padding: "20px", width: "50%", height: "70vh", margin: "auto", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <h2 style={{ marginBottom: "20px" }}>Post a Job</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} style={{ fontSize: "20px" }}>
         <Form.Field>
-          <label>Job Title:</label>
-          <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Job Title:</label>
+          <br />
+          <input type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", width: "100%" }} autoFocus />
         </Form.Field>
         <Form.Field>
-          <label>Company Name:</label>
-          <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Company Name:</label>
+          <br />
+          <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", width: "100%" }} />
         </Form.Field>
         <Form.Field>
-          <label>Location:</label>
-          <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Location:</label>
+          <br />
+          <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", width: "100%" }} />
         </Form.Field>
         <Form.Field>
-          <label>Job Description:</label>
-          <textarea rows={3} value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Job Description:</label>
+          <br />
+          <textarea rows={3} value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", width: "100%" }} />
         </Form.Field>
         <Form.Field>
-          <label>Contact Phone:</label>
-          <input type="text" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Contact Phone:</label>
+          <br />
+          <input type="text" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", width: "100%" }} />
         </Form.Field>
         <Form.Field>
-          <label>Contact Email:</label>
-          <input type="text" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Contact Email:</label>
+          <br />
+          <input type="text" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} style={{borderRadius:"5px" , borderRadius:"5px" , fontSize: "18px", height: "40px", width: "90%" }} />
         </Form.Field>
         <Form.Field>
-          <label>Deadline:</label>
-          <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+          <label style={{ fontSize: "20px" }}>Deadline:</label>
+          <br />
+          <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", width: "100%" }} />
         </Form.Field>
         <div style={{ marginTop: "20px" }}>
-          <Button type="submit" color="blue" disabled={!isFormValid()}>Submit</Button>
-          {!isFormValid() && <span style={{ marginLeft: "10px", color: "red" }}>Please fill all fields</span>}
+          <Button type="submit" color="blue" disabled={!isFormValid()} style={{ borderRadius:"5px" ,fontSize: "18px", height: "40px", padding: "10px 20px" }}>Submit</Button>
+          {!isFormValid() && <span style={{ marginLeft: "10px", color: "red", fontSize: "18px" }}>Please fill all fields</span>}
         </div>
       </Form>
     </div>
+
   );
-  
+
 }
 
 export default PostJobs;

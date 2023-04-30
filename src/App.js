@@ -9,7 +9,7 @@ import JobListing from './components/JobListing';
 import PostJobs from './components/PostJobs';
 import Users from './components/Users';
 import MyJobs from './components/myJobs';
-
+import "./App.css"
 const initialState = {
   input: '',
   route: 'signin',
@@ -91,7 +91,7 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <ParticlesBg type='circle' bg={true} />
+        <ParticlesBg type="circle" bg={true} className="particles-bg" />
         <Navigation
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
@@ -100,9 +100,12 @@ class App extends Component {
         />
         {route === 'home' && (
           <div>
-            <Logo />
-            <Rank name={this.state.user.name} is_admin={this.state.user.is_admin} />
+
+            
+            <div className='scrollable'>
+            <Rank name={this.state.user.name} is_admin={this.state.user.is_admin} /> 
             {currentComponent}
+          </div>
           </div>
         )}
         {route === 'signin' && (

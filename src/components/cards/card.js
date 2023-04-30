@@ -1,8 +1,8 @@
 import React from 'react';
-// import './card.css';
+import './card.css';
 import { Draggable } from 'react-beautiful-dnd';
 
-const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
+const Card = ({ job, index, onUpdate, user, active, myjobs }) => {
 
     const { job_title, company_name, job_description, location, contact_phone, contact_email, deadline } = job;
     const { id, name, email, is_admin } = user;
@@ -17,12 +17,13 @@ const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
 
     let color;
     if (daysUntilDeadline > 21) {
-        color = 'green';
+        color = 'linear-gradient(to bottom, rgba(76, 175, 80, 0.7), rgba(76, 175, 80, 1))'; // green gradient
     } else if (daysUntilDeadline > 14) {
-        color = 'yellow';
+        color = 'linear-gradient(to bottom, rgba(255, 235, 59, 0.7), rgba(255, 235, 59, 1))'; // yellow gradient
     } else {
-        color = 'red';
+        color = 'linear-gradient(to bottom, rgba(244, 67, 54, 0.7), rgba(244, 67, 54, 1))'; // red gradient
     }
+
 
     const handleArchive = () => {
         // Send POST request to server to set is_active field to false and order_index to INT_MAX
@@ -43,11 +44,11 @@ const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
             })
             .catch((err) => console.log(err));
 
-            
+
     };
 
 
-    
+
     const handleUnarchive = () => {
         // Send POST request to server to set is_active field to false and order_index to INT_MAX
         //  console.log(job.id);
@@ -112,7 +113,7 @@ const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
         <Draggable draggableId={job.id.toString()} index={index} isDragDisabled={!isDraggable}>
             {(provided) => (
                 <div className='card-container    '{...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                    <div className='card' style={{ backgroundColor: `${color}` }}>
+                    <div className='card' style={{ background: `${color}` }}>
                         <div className='card-content'>
                             <h2>{job_title}</h2>
                             <h3>{company_name}</h3>
@@ -120,18 +121,24 @@ const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
                         </div>
                         <div className='card-details'>
                             <div className='detail'>
-                                <span>{location}</span>
+                                <a href={`tel:${contact_phone}`} style={{ color: 'white' }}>{contact_phone}</a>
+                                <br />
                             </div>
                             <div className='detail'>
-                                <span>{contact_phone}</span>
+                                <a href={`mailto:${contact_email}`} style={{ color: 'white' }}>{contact_email}</a>
+                                <br />
                             </div>
                             <div className='detail'>
-                                <span>{contact_email}</span>
+                                <a href={`https://maps.google.com?q=${location}`} target='_blank' style={{ color: 'white' }}>{location}</a>
+                                <br />
                             </div>
                             <div className='detail'>
                                 <span>{formatDate(deadline)}</span>
+                                <br />
                             </div>
+
                         </div>
+
                         <div className='card-footer'>
                             {is_admin ? (
                                 <div>
@@ -144,13 +151,13 @@ const Card = ({ job, index, onUpdate, user , active , myjobs }) => {
                             ) : (
 
                                 <div>
-                                {!myjobs ? (
-                                    <button onClick={handleInterested}>Interested</button>
-                                ) : (
-                                    <button onClick={deleteInterested}>delete</button>
-                                )}
-                            </div>
-                                
+                                    {!myjobs ? (
+                                        <button onClick={handleInterested}>Interested</button>
+                                    ) : (
+                                        <button onClick={deleteInterested}>delete</button>
+                                    )}
+                                </div>
+
                             )}
 
                         </div>
