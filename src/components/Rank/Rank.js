@@ -4,10 +4,10 @@ const Rank = ({ name, is_admin }) => {
   return (
     <div>
       <div className='white f3'>
-        {`${name}, welcome you are `}
+        {`${name}, welcome you are `} {(is_admin)?"admin":"user" }
       </div>
       <div className='white f1'>
-        {(is_admin)?"admin":"user" }
+       
       </div>
     </div>
   );

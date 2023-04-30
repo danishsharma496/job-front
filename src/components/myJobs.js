@@ -1,28 +1,23 @@
-// jobListings.js
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import CardList from './cards/cardlist';
-// import './JobListing.css';
 
-const JobListing = ({user , active , myjobs}) => {
-  console.log("joblisting",user);
+const MyJobs = ({ user }) => {
   const [jobListings, setJobListings] = useState([]);
 
-useEffect(() => {
-  const fetchJobListings = async () => {
-    const url = 'http://localhost:3001/job_listing';
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setJobListings(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  fetchJobListings();
-}, [active]);
-
+  useEffect(() => {
+    const fetchJobListings = async () => {
+      try {
+        const res = await fetch(`http://localhost:3001/jobs/interested-jobs/${user.id}`);
+        const data = await res.json();
+        setJobListings(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
+    fetchJobListings();
+  }, [user.id]);
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
@@ -49,13 +44,14 @@ useEffect(() => {
     const updatedJobListings = jobListings.filter((job) => job.id !== jobId);
     setJobListings(updatedJobListings);
   };
+  
   return (
     <div className='job-listing'>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId='jobListings'>
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              <CardList jobListings={jobListings} onUpdate={handleJobListingUpdate} user={user} active={active} myjobs={myjobs}/>
+              <CardList jobListings={jobListings} onUpdate={handleJobListingUpdate} user={user} active={true} myjobs={true}/>
               {provided.placeholder}
             </div>
           )}
@@ -65,4 +61,4 @@ useEffect(() => {
   );
 };
 
-export default JobListing;
+export default MyJobs;
