@@ -5,7 +5,7 @@ const Users = ({ job }) => {
   const [Users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/jobs/interested-users`, {
+    fetch(`https://job-back.onrender.com/jobs/interested-users`, {
       headers: {
         'Content-Type': 'application/json',
       },

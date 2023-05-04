@@ -22,7 +22,7 @@ function PostJobs() {
       deadline: deadline
     };
     // Send POST request to the server
-    fetch('http://localhost:3001/job_listing', {
+    fetch('https://job-back.onrender.com/job_listing', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

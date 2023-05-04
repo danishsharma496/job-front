@@ -10,7 +10,7 @@ const JobListing = ({user , active , myjobs}) => {
 
 useEffect(() => {
   const fetchJobListings = async () => {
-    const url = 'http://localhost:3001/job_listing';
+    const url = 'https://job-back.onrender.com/job_listing';
     try {
       const res = await fetch(url);
       const data = await res.json();
@@ -33,7 +33,7 @@ useEffect(() => {
 
     // Send updated order numbers to the server
     const updatedOrderNumbers = items.map((item, index) => ({ id: item.id, order_index: index }));
-    fetch('http://localhost:3001/update_order_numbers', {
+    fetch('https://job-back.onrender.com/update_order_numbers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

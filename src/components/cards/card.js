@@ -28,7 +28,7 @@ const Card = ({ job, index, onUpdate, user, active, myjobs }) => {
     const handleArchive = () => {
         // Send POST request to server to set is_active field to false and order_index to INT_MAX
         // console.log("handleArchive");
-        fetch(`http://localhost:3001/archive/${job.id}`, {
+        fetch(`https://job-back.onrender.com/archive/${job.id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ const Card = ({ job, index, onUpdate, user, active, myjobs }) => {
     const handleUnarchive = () => {
         // Send POST request to server to set is_active field to false and order_index to INT_MAX
         //  console.log(job.id);
-        fetch(`http://localhost:3001/archive/${job.id}`, {
+        fetch(`https://job-back.onrender.com/archive/${job.id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const Card = ({ job, index, onUpdate, user, active, myjobs }) => {
     };
 
     const handleInterested = () => {
-        fetch(`http://localhost:3001/jobs/interested`, {
+        fetch(`https://job-back.onrender.com/jobs/interested`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ const Card = ({ job, index, onUpdate, user, active, myjobs }) => {
             .catch((err) => console.log(err));
     };
     const deleteInterested = () => {
-        fetch(`http://localhost:3001/jobs/interested`, {
+        fetch(`https://job-back.onrender.com/jobs/interested`, {
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json'
