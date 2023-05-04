@@ -1,14 +1,8 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+### `teraformers JOB Posting system `
 
 deployment link 
-Open [https://main--admirable-biscuit-9acc95.netlify.app/](deployment) to view it in your browser.
+Open [deployment]([deployment](https://main--admirable-biscuit-9acc95.netlify.app/)) to view it in your browser.
 
  
