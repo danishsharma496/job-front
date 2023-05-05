@@ -8,8 +8,14 @@ The application is deployed on Netlify and the backend is deployed on Render. Yo
 
 https://main--admirable-biscuit-9acc95.netlify.app/
 
-###`Features`
+`backend` - 
 
+###`Features` https://github.com/danishsharma496/job-back
+
+
+admin 
+userid : gokul@gmail.com
+pass  : gokul
 The app has the following `components`:
 
 Sign in
