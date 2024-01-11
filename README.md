@@ -13,9 +13,9 @@ https://main--admirable-biscuit-9acc95.netlify.app/
 ###`Features` 
 
 
-admin 
-userid : gokul@gmail.com <br/>
-pass  : gokul  <br/>
+admin USER with admin privilege 
+userid : admin@gmail.com <br/>
+pass  : admin  <br/>
 The app has the following `components`: <br />
 
 Sign in<br />
